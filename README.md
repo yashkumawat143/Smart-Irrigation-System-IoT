@@ -53,45 +53,45 @@ AI-based Irrigation Prediction
 
 
 
-Smart Irrigation System - Project Architecture
-
-
-                    +----------------------+
-                    |     Blynk Mobile     |
-                    |       Application    |
-                    +----------+-----------+
-                               |
-                          Wi-Fi / Internet
-                               |
-                    +----------v-----------+
-                    |      Blynk Cloud     |
-                    +----------+-----------+
-                               |
-                          Wi-Fi Connection
-                               |
-                    +----------v-----------+
-                    |        ESP32         |
-                    |  Main Controller     |
-                    +---+----+----+----+---+
-                        |    |    |    |
-        +---------------+    |    |    +----------------+
-        |                    |    |                     |
-+-------v------+      +------v------+          +--------v-------+
-| DHT11 Sensor |      | Soil Sensor |          | PIR Sensor     |
-| Temp/Humidity|      | Moisture    |          | Motion Detect  |
-+-------+------+      +------+------+
-        |                    |
-        +---------+----------+
-                  |
-          Sensor Data Processing
-                  |
-        +---------+----------+
-        |                    |
-+-------v------+      +------v------+
-| I2C LCD      |      | Relay Module|
-| Display Data |      | Pump Control|
-+-------+------+      +------+------+
-                               |
-                         +-----v-----+
-                         | Water Pump|
-                         +-----------+
+## Project Architecture
+```text
+                +----------------------+
+                |     Blynk Mobile     |
+                |     Application      |
+                +----------+-----------+
+                           |
+                     Wi-Fi / Internet
+                           |
+                +----------v-----------+
+                |      Blynk Cloud     |
+                +----------+-----------+
+                           |
+                     Wi-Fi Connection
+                           |
+                +----------v-----------+
+                |        ESP32         |
+                |   Main Controller    |
+                +---+----+----+----+---+
+                    |    |    |    |
+        +-----------+    |    |    +-----------+
+        |                |    |                |
++-------v------+  +------v------+  +----------v---------+
+| DHT11 Sensor |  | Soil Sensor |  |   PIR Sensor       |
+| Temp/Humidity|  |  Moisture   |  | Motion Detection   |
++-------+------+  +------+------+
+        |                |
+        +--------+-------+
+                 |
+        Sensor Data Processing
+                 |
+        +--------+--------+
+        |                 |
++-------v------+   +------v------+
+|  I2C LCD     |   | Relay Module|
+| Display Data |   | Pump Control|
++--------------+   +------+------+
+                         |
+                   +-----v-----+
+                   | Water Pump|
+                   +-----------+
+```
